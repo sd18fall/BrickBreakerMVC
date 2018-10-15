@@ -12,7 +12,7 @@ and modular code.
 """
 
 import pygame
-from pygame.locals import *
+import pygame.locals
 import time
 
 class PyGameWindowView(object):
@@ -117,7 +117,7 @@ class PyGameMouseController(object):
 
     def handle_event(self,event):
         """ Handle the mouse event so the paddle tracks the mouse position """
-        if event.type == MOUSEMOTION:
+        if event.type == pygame.locals.MOUSEMOTION:
             self.model.paddle.x = event.pos[0] - self.model.paddle.width/2.0
 
 class PyGameKeyboardController(object):
@@ -127,7 +127,7 @@ class PyGameKeyboardController(object):
 
     def handle_event(self,event):
         """ Left and right presses modify the x velocity of the paddle """
-        if event.type != KEYDOWN:
+        if event.type != pygame.locals.KEYDOWN:
             return
         if event.key == pygame.K_LEFT:
             self.model.paddle.vx += -1.0
@@ -148,7 +148,7 @@ if __name__ == '__main__':
     running = True
     while running:
         for event in pygame.event.get():
-            if event.type == QUIT:
+            if event.type == pygame.locals.QUIT:
                 running = False
             controller.handle_event(event)
         model.update()
