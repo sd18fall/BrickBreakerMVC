@@ -134,10 +134,12 @@ class PyGameKeyboardController(object):
         if event.key == pygame.K_RIGHT:
             self.model.paddle.vx += 1.0
 
-if __name__ == '__main__':
-    pygame.init()
 
-    size = (640, 480)
+def start_game(size):
+    """
+    Given screen 'size' as (x,y) tuple, start BrickBreaker game
+    """
+    pygame.init()
 
     model = BrickBreakerModel(size)
     print(model)
@@ -156,3 +158,7 @@ if __name__ == '__main__':
         time.sleep(.001)
 
     pygame.quit()
+
+if __name__ == '__main__':
+    size = (640, 480)
+    start_game(size)
