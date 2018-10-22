@@ -15,7 +15,8 @@ import time
 import pygame
 from model import BrickBreakerModel
 from view import PyGameWindowView
-from controller import PyGameKeyboardController, PyGameMouseController
+from controller.keyboard_controller import PyGameKeyboardController
+from controller.mouse_controller import PyGameMouseController
 
 
 def start_game(size):
